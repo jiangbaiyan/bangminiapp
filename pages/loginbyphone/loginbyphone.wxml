@@ -1,0 +1,22 @@
+<view class="container">
+  <view class="login-icon">
+    <image class="login-img" src="../images/logo.png"></image>
+  </view>
+  <form bindsubmit='login'>
+    <view class="inputview">
+      <!--手机号-->
+      <image class="icon" src="../images/user.png"></image>
+      <input class="inputText" bindinput='setPhone' disabled='{{disabled}}' type='number'  name="phone" placeholder='手机号'/>
+    </view>
+    <view class="inputview">
+      <!--验证码-->
+        <image class="icon" src="../images/Code.png"></image>
+        <input class="inputCode" maxlength="6" name="code" placeholder='验证码'/>
+        <button class="getcode" bindtap="bindButtonTap" disabled='{{disabled}}' style="color:{{color}}">{{text}}</button>
+    </view>
+    <!--按钮-->
+    <view class="loginBtnView">
+      <button form-type='submit' type="warn" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}">登录</button>
+    </view>
+  </form>
+</view>

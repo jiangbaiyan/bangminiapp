@@ -1,0 +1,54 @@
+@import '../../style/xiaomi.wxss';
+
+.login-img {
+  width: 300rpx;
+  height: 260rpx;
+}
+
+.login-icon {
+  margin-bottom: 80rpx;
+}
+
+.inputview {
+  width: 550rpx;
+  height: 80rpx;
+  display: flex;
+  border-radius: 15rpx;
+  background-color: rgb(248, 248, 248);
+  border-style: solid;
+  border-width: 3rpx;
+  border-color: #dc143c;
+  padding-top: 15rpx;
+  margin-bottom: 45rpx;
+  justify-content: center;
+}
+
+.icon {
+  margin-left: 18rpx;
+  width: 60rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}
+
+.getcode {
+  font-size: 34rpx;
+  height: 70rpx;
+  line-height: 70rpx; 
+  margin-right: 10rpx;
+}
+
+.inputText {
+  text-align: left;
+  width: 80%;
+  font-size: 36rpx;
+  color: rgb(80, 80, 80);
+  margin-left: 20rpx;
+}
+
+.inputCode {
+  text-align: left;
+  width: 50%;
+  font-size: 36rpx;
+  color: rgb(80, 80, 80);
+  margin-left: 20rpx;
+}
