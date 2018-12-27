@@ -1,10 +1,5 @@
-// pages/evaluate/evaluate.js
 Page({
 
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     userStars: [
       '../images/icon-start-emty.png',
@@ -38,9 +33,8 @@ Page({
       userStars: tempUserStars
     })
   },
-
   onLoad: function (options) {
-    var that = this
+    var that = this;
     wx.request({
       url: getApp().globalData.host + 'helpOthers/getReleasedOrderDetail?',
       data: { id: getApp().globalData.id },
@@ -65,7 +59,6 @@ Page({
         'Authorization':wx.getStorageSync('jwttoken')
       },
       method: "POST",
-
       data: {
         star:that.data.Score,
         id: getApp().globalData.id,
@@ -81,8 +74,7 @@ Page({
             wx.switchTab({
               url: '../myorder/myorder'
             })
-          }, 1000) 
-
+          }, 1000)
         } else if (res.data.status == 401) {
           wx.showModal({
             title: '提示',
@@ -103,9 +95,7 @@ Page({
             showCancel: false
           })
         }
-
       }
     })
   },
-
-})
+});

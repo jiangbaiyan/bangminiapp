@@ -8,7 +8,6 @@ Page({
       inFo:'',
       Sex:''
   },
-
   onLoad: function (options) {
     var that = this;
     wx.request({

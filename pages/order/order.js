@@ -75,7 +75,7 @@ Page({
         } else if (that.data.price <= 0) {
             wx.showModal({
                 title: '提示',
-                content: '价格填写有误',
+                content: '酬金填写有误',
                 confirmText: "知道了",
                 showCancel: false
             })
@@ -98,12 +98,13 @@ Page({
                     latitude: getApp().globalData.latitude
                 },
                 complete: function (res) {
-                    that.data.id = res.data.data.id
+                    that.data.id = res.data.data.id;
                     if (res.data.status == 200) {
                         wx.request({
                             url: getApp().globalData.host + 'pay/unifyPay',
                             header: {
                                 'Accept': 'application/json',
+                                'content-type': 'application/x-www-form-urlencoded',
                                 'Authorization': wx.getStorageSync('jwttoken')
                             },
                             data: {
@@ -111,7 +112,7 @@ Page({
                             },
                             method: 'GET',
                             complete: function (res) {
-                                if (res.data) {
+                                if (res.data.status == 200) {
                                     wx.requestPayment({
                                         'appId': res.data.data['appId'],
                                         'timeStamp': res.data.data['timeStamp'],
@@ -126,35 +127,20 @@ Page({
                                                 duration: 1000
                                             })
                                             that.onLoad()
-
                                             setTimeout(function () {
                                                 wx.switchTab({
                                                     url: '../ordercalog/ordercalog',
                                                 })
                                             }, 1000)
                                         },
-                                        'fail': function (res) {
-                                            wx.request({
-                                                url: getApp().globalData.host + 'askForHelp/cancelOrder',
-                                                data: {id: that.data.id},
-                                                method: 'POST',
-                                                header: {
-                                                    "content-type": "application/x-www-form-urlencoded",
-                                                    'Authorization': wx.getStorageSync('jwttoken')
-                                                },
-                                                success: function (res) {
-                                                    if (res.data.status == 200) {
-                                                        wx.showToast({
-                                                            title: '订单已取消',
-                                                            icon: 'none',
-                                                            duration: 1000
-                                                        })
-                                                    }
-                                                },
-                                            })
-                                        },
-
                                     });
+                                } else{
+                                  wx.showModal({
+                                    title: '提示',
+                                    content: res.data.msg,
+                                    confirmText: "知道了",
+                                    showCancel: false
+                                  })
                                 }
                             }
                         })

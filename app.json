@@ -12,7 +12,6 @@
     "pages/evaluate/evaluate",
     "pages/myorder/myorder",
     "pages/senderInfo/senderInfo",
-    "pages/ordersInfo/ordersInfo",
     "pages/myReOrders/myReOrders"
   ],
   

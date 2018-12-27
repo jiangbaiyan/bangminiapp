@@ -1,9 +1,5 @@
-// pages/myReOrders/myReOrders.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     orders:''
   },
@@ -85,5 +81,4 @@ Page({
       url: '../ContactSender/ContactSender'
     })
   }
-
-})
+});

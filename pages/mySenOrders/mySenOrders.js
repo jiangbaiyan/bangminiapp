@@ -1,9 +1,5 @@
-// pages/mySenOrders/mySenOrders.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     tip:'',
     orders:'',
@@ -14,9 +10,8 @@ Page({
     Or:false,
     And:true
   },
-
   onLoad: function (options) {
-    var that = this
+    var that = this;
     wx.request({
       url: getApp().globalData.host + 'order/getOrderDetail',
       data: { id: getApp().globalData.id },
@@ -82,7 +77,6 @@ Page({
           that.setData({
             orderstatus: '再来一单',
             tip: '订单完成'
-
           })
         } else if (that.data.orders.status == 5) {
           that.setData({
@@ -101,7 +95,7 @@ Page({
   },
   //点击事件
   bindStatus: function () {
-    var that = this
+    var that = this;
     if (that.data.orders.status == 1) {
       wx.showModal({
         title: '提示',
@@ -122,11 +116,11 @@ Page({
                     title: '订单已取消',
                     icon: 'success',
                     duration: 1000
-                  })
+                  });
                   setTimeout(function () {
                     wx.switchTab({
                       url: '../myorder/myorder'
-                    })
+                    });
                   }, 2000)
                 } else {
                   wx.showModal({
@@ -162,13 +156,12 @@ Page({
                     title: '订单确认完成',
                     icon: 'success',
                     duration: 1000
-                  })
+                  });
                   setTimeout(function () {
                     wx.switchTab({
                       url: '../myorder/myorder'
                     })
                   }, 1000)
-
                 } else {
                   wx.showModal({
                     title: '提示',
@@ -182,8 +175,6 @@ Page({
           }
         }
       });
-
-
     } else if (that.data.orders.status == 3) {
       getApp().globalData.id = this.data.orders.id
       wx.navigateTo({
@@ -195,4 +186,4 @@ Page({
       })
     }
   },
-})
+});
