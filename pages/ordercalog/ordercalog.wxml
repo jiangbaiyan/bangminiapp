@@ -1,14 +1,14 @@
     <!--导航条-->  
     <scroll-view class="segments" scroll-x="true">
     <view class="navbar">  
-      <text wx:for="{{navbar}}" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" disable="{{itemDisable}}"  bindtap="navbarTap" >{{item}}</text>  
+      <text wx:for="{{navbar}}" wx:key="unique" data-idx="{{index}}" class="item {{currentTab==index ? 'active' : ''}}" disable="{{itemDisable}}"  bindtap="navbarTap" >{{item}}</text>
     </view>  
     </scroll-view>
       
     <!--全部-->
 
     <view  hidden="{{currentTab!==0}}">
-         <view class="onecontent" wx:for="{{orders}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders}}" wx:key="orders" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders[idx].sender_avatar}}' id='{{orders[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -60,7 +60,7 @@
       
     <!--跑腿-->  
        <view  hidden="{{currentTab!==1}}">
-         <view class="onecontent" wx:for="{{orders1}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders1}}" wx:key="orders1" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders1[idx].sender_avatar}}' id='{{orders1[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -111,7 +111,7 @@
     </view>  
     <!--悬赏-->  
         <view  hidden="{{currentTab!=2}}">
-         <view class="onecontent" wx:for="{{orders2}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders2}}" wx:key="orders2" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders2[idx].sender_avatar}}' id='{{orders2[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -162,7 +162,7 @@
     </view>
      <!--学习-->  
         <view  hidden="{{currentTab!==3}}">
-         <view class="onecontent" wx:for="{{orders3}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders3}}" wx:key="orders3" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders3[idx].sender_avatar}}' id='{{orders3[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -213,7 +213,7 @@
     </view>
      <!--技术-->  
         <view  hidden="{{currentTab!==4}}">
-         <view class="onecontent" wx:for="{{orders4}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders4}}" wx:key="orders4" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders4[idx].sender_avatar}}' id='{{orders4[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -264,7 +264,7 @@
     </view>
      <!--生活-->  
         <view  hidden="{{currentTab!==5}}">
-         <view class="onecontent" wx:for="{{orders5}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders5}}" wx:key="orders5" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders5[idx].sender_avatar}}' id='{{orders5[idx].id}}' bindtap="TurnsenderInfo" ></image>
@@ -315,7 +315,7 @@
     </view>
      <!--其他-->  
             <view  hidden="{{currentTab!==6}}">
-         <view class="onecontent" wx:for="{{orders6}}"  wx:for-index="idx">
+         <view class="onecontent" wx:for="{{orders6}}" wx:key="orders6" wx:for-index="idx">
   <view class="upper">
     <view class="RecePic">
       <image class="ReceivePic" src='{{orders6[idx].sender_avatar}}' id='{{orders6[idx].id}}' bindtap="TurnsenderInfo" ></image>

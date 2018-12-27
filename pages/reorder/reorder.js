@@ -15,7 +15,7 @@ Page({
             phoneNumber: this.data.phonecall
         })
     },
-    onLoad: function (options) {
+    onLoad: function () {
         var that = this;
         wx.request({
             url: getApp().globalData.host + 'helpOthers/getReleasedOrderDetail?',
@@ -32,7 +32,7 @@ Page({
                         content: "请重新登录",
                         confirmText: "确定",
                         showCancel: false,
-                        success: function (res) {
+                        success: function () {
                             wx.redirectTo({
                                 url: '../loginbyphone/loginbyphone'
                             })
@@ -45,31 +45,30 @@ Page({
                         phonecall: res.data.data.sender.phone,
                     })
                 }
-                if (that.data.orders.type == 0) {
-                    that.setData({
-                        type: '跑腿'
-                    })
-                } else if (that.data.orders.type == 1) {
-                    that.setData({
-                        type: '悬赏提问'
-                    })
-                } else if (that.data.orders.type == 2) {
-                    that.setData({
-                        type: '学习服务'
-                    })
-                } else if (that.data.orders.type == 3) {
-                    that.setData({
-                        type: '技术服务'
-                    })
-                } else if (that.data.orders.type == 4) {
-                    that.setData({
-                        type: '生活服务'
-                    })
-                } else if (that.data.orders.type == 5) {
-                    that.setData({
-                        type: '其他'
-                    })
+                var str;
+                switch (that.data.orders.type) {
+                    case 0:
+                        str = '跑腿';
+                        break;
+                    case 1:
+                        str = '悬赏提问';
+                        break;
+                    case 2:
+                        str = '学习辅导';
+                        break;
+                    case 3:
+                        str = '技术服务';
+                        break;
+                    case 4:
+                        str = '生活服务';
+                        break;
+                    case 5:
+                        str = '其他';
+                        break;
                 }
+                this.setData({
+                    type: str
+                });
             },
         })
     },
