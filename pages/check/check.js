@@ -1,28 +1,21 @@
 // pages/check/check.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
-  data: {
-  
-  },
   onLoad:function(){
-    var that=this
+    var that=this;
     wx.getLocation({
       type: 'gcj02', //返回可以用于wx.openLocation的经纬度
       success: function (res) {
-        getApp().globalData.latitude = res.latitude,
-          getApp().globalData.longitude = res.longitude
+        getApp().globalData.latitude = res.latitude;
+        getApp().globalData.longitude = res.longitude;
       }
-    })
+    });
     wx.getSetting({
       success: (res) => {
         if (!res.authSetting['scope.userLocation'])
           that.openConfirm()
       }
-    })
-    if (wx.getStorageSync('jwttoken')==''){
+    });
+    if (wx.getStorageSync('jwttoken') == ''){
       wx.reLaunch({
         url: '../loginbyphone/loginbyphone',
       })
@@ -37,7 +30,7 @@ Page({
       success: function (res) {
         if(res.data.status==401){
           wx.reLaunch({
-            url: '../login/login',
+            url: '../loginbyphone/loginbyphone',
           })
         }else if(res.data.status==200){
           wx.switchTab({
@@ -63,5 +56,4 @@ Page({
       }
     });
   },
-
-})
+});

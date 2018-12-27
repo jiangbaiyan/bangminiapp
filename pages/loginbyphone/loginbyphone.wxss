@@ -23,6 +23,11 @@
   justify-content: center;
 }
 
+.button {
+  width: 550rpx;
+  border-radius: 15rpx;
+}
+
 .icon {
   margin-left: 18rpx;
   width: 60rpx;

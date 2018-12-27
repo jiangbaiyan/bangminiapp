@@ -1,7 +1,6 @@
 // pages/order/order.js
 Page({
 
- 
   data: {
     style:[ '跑腿','悬赏提问','学习服务','技术服务','生活服务','其他',''],
     type:6,
@@ -20,9 +19,6 @@ Page({
     longitude:'',
     latitude: '',
     disableText:false,
-    
-
-  
   },
 
   onLoad:function(){
@@ -48,34 +44,27 @@ this.setData({
   },
   //获取title
   gettitle: function (e) {
-    
     this.setData({
       title: e.detail.value
     })
   },
   //获取content
   getcontent: function (e) {
-    
     this.setData({
       content: e.detail.value
     })
   },  //获取price
   getprice: function (e) {
-    
     this.setData({
       price: e.detail.value
     })
   },
   //发布订单
   Release: function () {
-
     var that = this;
-
     that.setData({
       hiddenModal: true,
-      
-    })
-    
+    });
     if (that.data.title == '' || that.data.content == '' || that.data.begindata == '' || that.data.begintime == '' || that.data.enddata == '' || that.data.endtime == '' || that.data.type == '' || that.data.price==''){
       wx.showModal({
         title: '提示',
@@ -99,9 +88,7 @@ this.setData({
         'Authorization':wx.getStorageSync('jwttoken')
       },
       method: "POST",
-
       data: {
-        
         title: this.data.title,
         content: this.data.content,
         beginTime: this.data.begindata +' '+ this.data.begintime,
@@ -172,10 +159,6 @@ this.setData({
               }
             }
           })
-         
-          
-    
-
       } else if (res.data.status == 401) {
         wx.showModal({
           title: '提示',
@@ -184,7 +167,7 @@ this.setData({
           showCancel: false,
           success: function (res) {
             wx.redirectTo({
-              url: '../login/login'
+              url: '../loginbyphone/loginbyphone'
             })
           }
         })
@@ -196,15 +179,12 @@ this.setData({
             showCancel: false
           })
         }
-
-        
       }
     })
     }
   that.setData({
     disableText:false
   })
-
   }, 
   //选择类型
   changestyle:function(e){
@@ -253,4 +233,4 @@ this.setData({
       disableText: false
     })
   },
-})
+});

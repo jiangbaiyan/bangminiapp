@@ -1,6 +1,5 @@
-var app = getApp()
+var app = getApp();
 Page({
-  
   data: {
     navbar: ['全部', '跑腿','悬赏提问', '学习服务','技术服务','生活服务','其他'],
     currentTab: 0,
@@ -40,16 +39,13 @@ Page({
     itemDisable:false,
     hide:true,
     hideNull:true
-
-    
-    
   },
   onPullDownRefresh:function(){
-    wx.showNavigationBarLoading()
-    this.onShow()
+    wx.showNavigationBarLoading();
+    this.onShow();
     setTimeout(function () {
-      wx.hideNavigationBarLoading() 
-      wx.stopPullDownRefresh()
+      wx.hideNavigationBarLoading() ;
+      wx.stopPullDownRefresh();
     }, 1500) 
   },
   onReachBottom: function () {
@@ -59,11 +55,11 @@ Page({
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page1: that.data.page1 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -91,15 +87,15 @@ Page({
       }
     } else if (this.data.currentTab == 2) {
       if (this.data.page2 < this.data.total_page2) {
-        var that = this
+        var that = this;
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page2: that.data.page2 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -116,7 +112,7 @@ Page({
           success: function (res) {
             that.setData({
               orders2: that.data.orders2.concat(res.data.data.data)
-            })
+            });
             if (that.data.page2 == that.data.total_page2) {
               that.setData({
                 hide: false
@@ -131,11 +127,11 @@ Page({
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page3: that.data.page3 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -146,7 +142,7 @@ Page({
           },
           method: 'GET',
           header: {
-            'Accept': 'application/jsosn',
+            'Accept': 'application/json',
             'Authorization': wx.getStorageSync('jwttoken')
           },
           success: function (res) {
@@ -162,11 +158,11 @@ Page({
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page4: that.data.page4 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -177,13 +173,13 @@ Page({
           },
           method: 'GET',
           header: {
-            'Accept': 'application/jsosn',
+            'Accept': 'application/json',
             'Authorization':wx.getStorageSync('jwttoken')
           },
           success: function (res) {
             that.setData({
               orders4: that.data.orders4.concat(res.data.data.data)
-            })
+            });
             if (that.data.page4 == that.data.senttotal_page4) {
               that.setData({
                 hide: false
@@ -194,15 +190,15 @@ Page({
       }
     } else if (this.data.currentTab == 5) {
       if (this.data.page5 < this.data.total_page5) {
-        var that = this
+        var that = this;
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page5: that.data.page5 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -219,7 +215,7 @@ Page({
           success: function (res) {
             that.setData({
               orders5: that.data.orders5.concat(res.data.data.data)
-            })
+            });
             if (that.data.page5 == that.data.senttotal_page5) {
               that.setData({
                 hide: false
@@ -230,15 +226,15 @@ Page({
       }
     } else if (this.data.currentTab == 6) {
       if (this.data.page6 < this.data.total_page6) {
-        var that = this
+        var that = this;
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page6: that.data.page6 + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -255,7 +251,7 @@ Page({
           success: function (res) {
             that.setData({
               orders6: that.data.orders6.concat(res.data.data.data)
-            })
+            });
             if (that.data.page6 == that.data.total_page6) {
               that.setData({
                 hide: false
@@ -270,11 +266,11 @@ Page({
         wx.showToast({
           title: '努力加载中',
           icon: 'loading',
-          duration: 1500
-        })
+          duration: 500
+        });
         that.setData({
           page: that.data.page + 1
-        })
+        });
         wx.request({
           url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
           data: {
@@ -290,7 +286,7 @@ Page({
           success: function (res) {
             that.setData({
               orders: that.data.orders.concat(res.data.data.data)
-            })
+            });
             if (that.data.page == that.data.total_page) {
               that.setData({
                 hide: false
@@ -302,7 +298,6 @@ Page({
     }
   },
       
-  
   navbarTap: function (e) {
     this.setData({
       currentTab: e.currentTarget.dataset.idx,
@@ -319,6 +314,7 @@ Page({
     })
     this.load()
   },
+
   onShow:function(){
     this.setData({
       page:1,
@@ -333,10 +329,10 @@ Page({
     })
     this.load()
   },
+
   load:function(){
-    var that = this
+    var that = this;
     if (this.data.currentTab == 1) {
-     
       wx.request({
         url: getApp().globalData.host + 'helpOthers/getReleasedOrderList?type=0',
         data: {
@@ -362,7 +358,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -410,7 +406,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -454,7 +450,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -466,14 +462,10 @@ Page({
               total_page3: res.data.data.total_page
             })
           }
-
-
-
-
         },
       })
     } else if (this.data.currentTab == 4) {
-      var that = this
+      var that = this;
       wx.request({
         url: getApp().globalData.host + 'helpOthers/getReleasedOrderList?type=3',
         data: {
@@ -499,7 +491,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -511,12 +503,10 @@ Page({
               total_page4: res.data.data.total_page
             })
           }
-
-
         },
       })
     } else if (this.data.currentTab == 5) {
-      var that = this
+      var that = this;
       wx.request({
         url: getApp().globalData.host + 'helpOthers/getReleasedOrderList?type=4',
         data: {
@@ -542,7 +532,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -554,8 +544,6 @@ Page({
               total_page5: res.data.data.total_page
             })
           }
-
-
         },
       })
     } else if (this.data.currentTab == 6) {
@@ -585,7 +573,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -597,12 +585,10 @@ Page({
               total_page6: res.data.data.total_page
             })
           }
-
-
         },
       })
     } else {
-      var that = this
+      var that = this;
       wx.request({
         url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
         data: {
@@ -623,7 +609,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -640,9 +626,6 @@ Page({
               orders: ''
             })
           }
-
-
-
         },
       })
     }
@@ -652,8 +635,7 @@ Page({
   },
 
   onLoad:function(){
-    var that = this
-   
+    var that = this; 
     wx.request({
       url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
       data: {
@@ -674,7 +656,7 @@ Page({
         showCancel: false,
         success: function (res) {
           wx.redirectTo({
-            url: '../login/login'
+            url: '../loginbyphone/loginbyphone'
           })
         }
       })
@@ -690,16 +672,12 @@ Page({
             orders: ''
           })
         }
-
-
-
       },
     })
-
   },
 
   Loadpage:function(){
-      var that=this
+      var that=this;
       wx.request({
         url: getApp().globalData.host + 'helpOthers/getReleasedOrderList',
         data: {
@@ -723,9 +701,7 @@ Page({
       })
   },
 
-  
   reorder:function(e){
-
     getApp().globalData.id = e.target.id
     wx.navigateTo({
       url: '../reorder/reorder'
@@ -737,4 +713,4 @@ Page({
       url: '../senderInfo/senderInfo'
     })
   }
-})  
+});

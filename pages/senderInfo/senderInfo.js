@@ -1,21 +1,16 @@
-// pages/senderInfo/senderInfo.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     phone:''
   },
   callPhone:function(){
-    var that=this
+    var that=this;
       wx.makePhoneCall({
         phoneNumber: that.data.phone
       })
   },
-
-  onLoad: function (options) {
-    var that = this
+  onLoad: function () {
+    var that = this;
     wx.request({
       url: getApp().globalData.host + 'helpOthers/getReleasedOrderDetail',
       data: { id: getApp().globalData.id },
@@ -33,7 +28,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.redirectTo({
-                url: '../login/login'
+                url: '../loginbyphone/loginbyphone'
               })
             }
           })
@@ -42,7 +37,7 @@ Page({
           that.setData({
             inFo: res.data.data,
             phone:res.data.data.sender.phone
-          })
+          });
           if (res.data.data.sender.sex == 1) {
             that.setData({
               Sex: '男'
@@ -53,8 +48,7 @@ Page({
             })
           }
         }
-
       },
     })
   },
-})
+});

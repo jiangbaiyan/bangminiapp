@@ -31,7 +31,6 @@ Page({
       } else { // 其他是空心
         tempUserStars[i] = '../images/icon-start-emty.png'
       }
-      
     }
     this.data.Score=index+1
     // 重新赋值就可以显示了
@@ -40,9 +39,6 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     var that = this
     wx.request({
@@ -95,7 +91,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.redirectTo({
-                url: '../login/login'
+                url: '../loginbyphone/loginbyphone'
               })
             }
           })

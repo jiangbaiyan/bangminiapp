@@ -5,15 +5,14 @@
     "pages/ContactUser/ContactUser",
     "pages/ContactSender/ContactSender",
     "pages/loginbyphone/loginbyphone",
-    "pages/login/login",
     "pages/index/index",
     "pages/order/order",
     "pages/reorder/reorder",
     "pages/ordercalog/ordercalog",
     "pages/evaluate/evaluate",
     "pages/myorder/myorder",
-    "pages/ordersInfo/ordersInfo",
     "pages/senderInfo/senderInfo",
+    "pages/ordersInfo/ordersInfo",
     "pages/myReOrders/myReOrders"
   ],
   

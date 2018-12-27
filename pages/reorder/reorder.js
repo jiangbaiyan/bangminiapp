@@ -1,17 +1,11 @@
-// pages/reorder/reorder.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
     hiddenModal:true,
     orders:[],
     type:'',
     hiddenModal: true,
     phonecall:'',
-    
-    
   },
   onShow: function () {
     this.onLoad();
@@ -22,11 +16,8 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    var that = this
+    var that = this;
     wx.request({
       url: getApp().globalData.host + 'helpOthers/getReleasedOrderDetail?',
       data: { id: getApp().globalData.id},
@@ -44,7 +35,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.redirectTo({
-                url: '../login/login'
+                url: '../loginbyphone/loginbyphone'
               })
             }
           })
@@ -80,7 +71,6 @@ Page({
             type: '其他'
           })
         }
-
       },
     })
   },
@@ -95,7 +85,6 @@ Page({
     })
   },
   TurnsenderInfo: function () {
-    
     wx.navigateTo({
       url: '../ContactSender/ContactSender'
     })
@@ -123,16 +112,15 @@ Page({
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
-          })
+          });
           that.setData({
             hiddenModal: true
-          })
+          });
           setTimeout(function () {
             wx.switchTab({
               url: '../ordercalog/ordercalog'
             })
           }, 1000)
-         
         } else if (res.data.status == 200) {
           wx.showToast({
             title: '已接单',
@@ -143,11 +131,10 @@ Page({
             success: function (res) { },
             fail: function (res) { },
             complete: function (res) { },
-          })
+          });
           that.setData({
             hiddenModal: true
-          })
-
+          });
           setTimeout(function () {
             wx.switchTab({
               url: '../myorder/myorder'
@@ -157,4 +144,4 @@ Page({
       }
    })
   },
-})
+});

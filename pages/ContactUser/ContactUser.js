@@ -33,7 +33,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.redirectTo({
-                url: '../login/login'
+                url: '../loginbyphone/loginbyphone'
               })
             }
           })
