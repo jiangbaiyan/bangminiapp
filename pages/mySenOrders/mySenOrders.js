@@ -18,7 +18,7 @@ Page({
       method: 'GET',
       header: {
         'Accept': 'application/json',
-        'Authorization': wx.getStorageSync('jwttoken')
+        'Authorization': wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.data != []) {
@@ -34,7 +34,7 @@ Page({
           })
         }
         var str;
-        switch (that.data.orders.type) {
+        switch (res.data.data.type) {
              case 0:
                 str = '跑腿';
                 break;
@@ -52,10 +52,10 @@ Page({
                 break;
             case 5:
                 str = '其他';
-                break;
+                break;    
         }
-        this.setData({
-            type: str
+        that.setData({
+          type: str
         });
         if (that.data.orders.status == 1) {
           that.setData({
@@ -107,7 +107,7 @@ Page({
               method: 'POST',
               header: {
                 "content-type": "application/x-www-form-urlencoded",
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
               },
               success: function (res) {
                 if (res.data.status == 200) {
@@ -147,7 +147,7 @@ Page({
               method: 'POST',
               header: {
                 "content-type": "application/x-www-form-urlencoded",
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
               },
               success: function (res) {
                 if (res.data.status == 200) {

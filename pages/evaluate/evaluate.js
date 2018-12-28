@@ -41,7 +41,7 @@ Page({
       method: 'GET',
       header: {
         'Accept': 'application/json',
-        'Authorization':wx.getStorageSync('jwttoken')
+        'Authorization':wx.getStorageSync('token')
       },
       success: function (res) {
         that.setData({
@@ -56,7 +56,7 @@ Page({
       url: getApp().globalData.host + "order/commentOrder",
       header: {
         "content-type": "application/x-www-form-urlencoded",
-        'Authorization':wx.getStorageSync('jwttoken')
+        'Authorization':wx.getStorageSync('token')
       },
       method: "POST",
       data: {

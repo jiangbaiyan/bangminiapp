@@ -16,7 +16,7 @@ Page({
       method: 'GET',    
       header: {
         'Accept': 'application/json',
-        'Authorization':wx.getStorageSync('jwttoken')
+        'Authorization':wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.status == 401) {
@@ -67,13 +67,11 @@ Page({
       content: '检测到您没打开帮帮吧的定位权限，是否去设置打开？',
       confirmText: "确认",
       cancelText: "取消",
-      success: function (res) {
-        if (res.confirm) {
-          wx.openSetting({
-            success: (res) => { }
-          })
+        success: function (res) {
+            if (res.confirm) {
+                wx.openSetting();
+            }
         }
-      }
     });
   },
   correctinfo:function(){

@@ -93,9 +93,7 @@ Page({
             cancelText: "取消",
             success: function (res) {
                 if (res.confirm) {
-                    wx.openSetting({
-                        success: (res) => { }
-                    })
+                    wx.openSetting();
                 }
             }
         });
@@ -136,7 +134,7 @@ Page({
                                 success: function (res) {
                                     if (res.data.status == 200) {
                                         wx.setStorage({
-                                            key: 'jwttoken',
+                                            key: 'token',
                                             data: res.data.data.token,
                                         });
                                         wx.showToast({

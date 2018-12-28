@@ -23,7 +23,7 @@ Page({
             method: 'GET',
             header: {
                 'Accept': 'application/json',
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
             },
             success: function (res) {
                 if (res.data.status == 401) {
@@ -96,7 +96,7 @@ Page({
             },
             header: {
                 'Accept': 'application/json',
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
             },
             method: 'POST',
             success: function (res) {

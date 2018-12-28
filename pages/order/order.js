@@ -84,7 +84,7 @@ Page({
                 url: getApp().globalData.host + "askForHelp/releaseOrder",
                 header: {
                     "content-type": "application/x-www-form-urlencoded",
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 method: "POST",
                 data: {
@@ -105,7 +105,7 @@ Page({
                             header: {
                                 'Accept': 'application/json',
                                 'content-type': 'application/x-www-form-urlencoded',
-                                'Authorization': wx.getStorageSync('jwttoken')
+                                'Authorization': wx.getStorageSync('token')
                             },
                             data: {
                                 id: that.data.id

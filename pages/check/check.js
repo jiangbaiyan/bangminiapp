@@ -15,7 +15,7 @@ Page({
           that.openConfirm()
       }
     });
-    if (wx.getStorageSync('jwttoken') == ''){
+    if (wx.getStorageSync('token') == ''){
       wx.reLaunch({
         url: '../loginbyphone/loginbyphone',
       })
@@ -25,7 +25,7 @@ Page({
       method: 'GET',
       header: {
         'Accept': 'application/json',
-        'Authorization': wx.getStorageSync('jwttoken')
+        'Authorization': wx.getStorageSync('token')
       },
       success: function (res) {
         if(res.data.status==401){
@@ -49,9 +49,7 @@ Page({
       success: function (res) {
         //点击“确认”时打开设置页面
         if (res.confirm) {
-          wx.openSetting({
-            success: (res) => { }
-          })
+          wx.openSetting();
         }
       }
     });

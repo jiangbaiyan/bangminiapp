@@ -40,6 +40,19 @@ Page({
         hide: true,
         hideNull: true
     },
+  showUnAuthorized: function () {
+    wx.showModal({
+      title: '提示',
+      content: "请重新登录",
+      confirmText: "确定",
+      showCancel: false,
+      success: function (res) {
+        wx.redirectTo({
+          url: '../loginbyphone/loginbyphone'
+        })
+      }
+    })
+  },
     onPullDownRefresh: function () {
         wx.showNavigationBarLoading();
         this.onShow();
@@ -71,7 +84,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/jsosn',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -107,7 +120,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/jsosn',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -143,7 +156,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/json',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -174,7 +187,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/json',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -210,7 +223,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/jsosn',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -246,7 +259,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/jsosn',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -281,7 +294,7 @@ Page({
                     method: 'GET',
                     header: {
                         'Accept': 'application/jsosn',
-                        'Authorization': wx.getStorageSync('jwttoken')
+                        'Authorization': wx.getStorageSync('token')
                     },
                     success: function (res) {
                         that.setData({
@@ -315,20 +328,6 @@ Page({
         this.load()
     },
 
-    showUnAuthorized: function () {
-        wx.showModal({
-            title: '提示',
-            content: "请重新登录",
-            confirmText: "确定",
-            showCancel: false,
-            success: function (res) {
-                wx.redirectTo({
-                    url: '../loginbyphone/loginbyphone'
-                })
-            }
-        })
-    },
-
     onShow: function () {
         this.setData({
             page: 1,
@@ -356,7 +355,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -392,7 +391,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -423,7 +422,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -454,7 +453,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -485,7 +484,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -516,7 +515,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.data == '') {
@@ -547,7 +546,7 @@ Page({
                 method: 'GET',
                 header: {
                     'Accept': 'application/json',
-                    'Authorization': wx.getStorageSync('jwttoken')
+                    'Authorization': wx.getStorageSync('token')
                 },
                 success: function (res) {
                     if (res.data.status == 401) {
@@ -583,7 +582,7 @@ Page({
             method: 'GET',
             header: {
                 'Accept': 'application/json',
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
             },
             success: function (res) {
                 if (res.data.status == 401) {
@@ -615,7 +614,7 @@ Page({
             method: 'GET',
             header: {
                 'Accept': 'application/json',
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
             },
             success: function (res) {
                 if (res.data.data.data_count >= 0) {

@@ -62,7 +62,7 @@ Page({
         method: 'GET',
         header: {
           'Accept': 'application/json',
-          'Authorization': wx.getStorageSync('jwttoken')
+          'Authorization': wx.getStorageSync('token')
         },
         success: function (res) {
           that.setData({
@@ -141,7 +141,7 @@ Page({
           method: 'GET',
           header: {
             'Accept': 'application/json',
-            'Authorization':wx.getStorageSync('jwttoken')
+            'Authorization':wx.getStorageSync('token')
           },
           success: function (res) {
             that.setData({
@@ -235,7 +235,7 @@ Page({
         method: 'GET',
         header: {
           'Accept': 'application/json',
-          'Authorization':wx.getStorageSync('jwttoken')
+          'Authorization':wx.getStorageSync('token')
         },
         success: function (res) {
           if (res.data.data == '') {
@@ -251,7 +251,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -318,7 +318,7 @@ Page({
         method: 'GET',
         header: {
           'Accept': 'application/json',
-          'Authorization':wx.getStorageSync('jwttoken')
+          'Authorization':wx.getStorageSync('token')
         },
         success: function (res) {
           if (res.data.data == '') {
@@ -334,7 +334,7 @@ Page({
               showCancel: false,
               success: function (res) {
                 wx.redirectTo({
-                  url: '../login/login'
+                  url: '../loginbyphone/loginbyphone'
                 })
               }
             })
@@ -401,7 +401,7 @@ Page({
         method: 'GET',
         header: {
           'Accept': 'application/json',
-          'Authorization': wx.getStorageSync('jwttoken')
+          'Authorization': wx.getStorageSync('token')
         },
         success: function (res) {
           wx.setStorage({
@@ -420,7 +420,7 @@ Page({
       method: 'GET',
       header: {
         'Accept': 'application/json',
-        'Authorization':wx.getStorageSync('jwttoken')
+        'Authorization':wx.getStorageSync('token')
       },
       success: function (res) {
         if (res.data.data == '') {
@@ -436,7 +436,7 @@ Page({
             showCancel: false,
             success: function (res) {
               wx.redirectTo({
-                url: '../login/login'
+                url: '../loginbyphone/loginbyphone'
               })
             }
           })

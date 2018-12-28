@@ -11,7 +11,7 @@ Page({
             method: 'GET',
             header: {
                 'Accept': 'application/json',
-                'Authorization': wx.getStorageSync('jwttoken')
+                'Authorization': wx.getStorageSync('token')
             },
             success: function (res) {
                 if (res.data.data != []) {
