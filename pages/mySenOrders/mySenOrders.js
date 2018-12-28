@@ -60,7 +60,7 @@ Page({
         if (that.data.orders.status == 1) {
           that.setData({
             orderstatus: '取消订单',
-            tip: '暂无接单哦'
+            tip: '暂无人接单哦'
           })
         } else if (that.data.orders.status == 2) {
           that.setData({
