@@ -144,7 +144,7 @@ Page({
                                         });
                                         setTimeout(function () {
                                             wx.switchTab({
-                                                url: '../ordercalog/ordercalog',
+                                                url: '../check/check',
                                             })
                                         }, 1000)
                                     } else {

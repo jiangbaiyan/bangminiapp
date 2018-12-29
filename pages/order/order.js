@@ -61,6 +61,7 @@ Page({
     },
     //发布订单
     Release: function () {
+      console.log(getApp().globalData.longitude);
         var that = this;
         that.setData({
             hiddenModal: true,

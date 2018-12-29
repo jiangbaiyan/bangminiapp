@@ -1,4 +1,3 @@
-// pages/check/check.js
 Page({
   onLoad:function(){
     var that=this;
