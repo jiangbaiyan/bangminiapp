@@ -2,8 +2,8 @@
   "pages":[
     "pages/check/check",
     "pages/mySenOrders/mySenOrders",
-    "pages/ContactUser/ContactUser",
-    "pages/ContactSender/ContactSender",
+    "pages/contactUser/contactUser",
+    "pages/contactSender/contactSender",
     "pages/loginbyphone/loginbyphone",
     "pages/index/index",
     "pages/order/order",

@@ -89,7 +89,7 @@ Page({
 
   TurnsenderInfo:function(){
     wx.navigateTo({
-      url: '../ContactUser/ContactUser'
+      url: '../contactUser/contactUser'
     })
   },
   //点击事件

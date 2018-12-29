@@ -76,7 +76,7 @@ Page({
     },
     TurnsenderInfo: function () {
         wx.navigateTo({
-            url: '../ContactSender/ContactSender'
+            url: '../contactSender/contactSender'
         })
     }
 });
