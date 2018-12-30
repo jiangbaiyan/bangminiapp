@@ -18,6 +18,26 @@ Page({
       wx.reLaunch({
         url: '../loginbyphone/loginbyphone',
       })
+    } else{
+      wx.request({
+        url: getApp().globalData.host + 'user/getUserInfo',
+        method: 'GET',
+        header: {
+          'Accept': 'application/json',
+          'Authorization': wx.getStorageSync('token')
+        },
+        success: function (res) {
+          if (res.data.status == 401) {
+            wx.reLaunch({
+              url: '../loginbyphone/loginbyphone',
+            })
+          } else if (res.data.status == 200) {
+            wx.switchTab({
+              url: '../ordercalog/ordercalog',
+            })
+          }
+        }
+      })
     }
   },
   openConfirm: function () {
