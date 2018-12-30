@@ -142,23 +142,9 @@ Page({
                                             icon: 'success',
                                             duration: 500
                                         });
-                                        var that=this;
-                                        wx.getLocation({
-                                            type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-                                            success: function (res) {
-                                                getApp().globalData.latitude = res.latitude;
-                                                getApp().globalData.longitude = res.longitude;
-                                            }
-                                        });
-                                        wx.getSetting({
-                                            success: (res) => {
-                                                if (!res.authSetting['scope.userLocation'])
-                                                    that.openConfirm()
-                                            }
-                                        });
                                         setTimeout(function () {
                                             wx.switchTab({
-                                                url: '../ordercalog/ordercalog',
+                                                url: '../check/check',
                                             })
                                         }, 1000)
                                     } else {
