@@ -61,7 +61,6 @@ Page({
     },
     //发布订单
     Release: function () {
-      console.log(getApp().globalData.longitude);
         var that = this;
         that.setData({
             hiddenModal: true,
@@ -114,6 +113,8 @@ Page({
                             method: 'GET',
                             complete: function (res) {
                                 if (res.data.status == 200) {
+                                  var arr = res.data.data.package.split('=');
+                                  var form_id = arr[1];
                                     wx.requestPayment({
                                         'appId': res.data.data['appId'],
                                         'timeStamp': res.data.data['timeStamp'],
@@ -122,17 +123,32 @@ Page({
                                         'signType': 'MD5',
                                         'paySign': res.data.data['paySign'],
                                         'success': function (res) {
-                                            wx.showToast({
+                                          wx.request({
+                                            url: getApp().globalData.host + 'pay/sendModelInfo',
+                                            header: {
+                                              'Accept': 'application/json',
+                                              'content-type': 'application/x-www-form-urlencoded',
+                                              'Authorization': wx.getStorageSync('token')
+                                            },
+                                            data: {
+                                              id: that.data.id,
+                                              form_id: form_id
+                                            },
+                                            method: 'GET',
+                                            success: function(){
+                                              wx.showToast({
                                                 title: '提交成功',
                                                 icon: 'success',
                                                 duration: 1000
-                                            })
-                                            that.onLoad()
-                                            setTimeout(function () {
+                                              })
+                                              that.onLoad()
+                                              setTimeout(function () {
                                                 wx.switchTab({
-                                                    url: '../ordercalog/ordercalog',
+                                                  url: '../ordercalog/ordercalog',
                                                 })
-                                            }, 1000)
+                                              }, 1000)
+                                            }
+                                          })
                                         },
                                     });
                                 } else{

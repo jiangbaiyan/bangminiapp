@@ -89,6 +89,14 @@ Page({
                 [status]: '等待接单',
               
               })
+
+            } else if (that.data.sentorders[i].status == 6) {
+              var status = 'status[' + i + ']';
+
+              that.setData({
+                [status]: '未支付',
+
+              })
            
      
             } else if (that.data.sentorders[i].status == 5) {
@@ -168,6 +176,15 @@ Page({
                 that.setData({
                   [status]: '等待接单',
        
+                })
+
+
+              } else if (that.data.sentorders[i].status == 6) {
+                var status = 'status[' + i + ']';
+
+                that.setData({
+                  [status]: '未支付',
+
                 })
 
               } else if (that.data.reorders[i].status == 5) {
@@ -280,6 +297,14 @@ Page({
                
                 })
 
+              } else if (that.data.sentorders[i].status == 6) {
+                var status = 'status[' + i + ']';
+
+                that.setData({
+                  [status]: '未支付',
+
+                })
+
               } else if (that.data.sentorders[i].status == 5) {
                 var status = 'status[' + i + ']';
                
@@ -369,6 +394,13 @@ Page({
                 that.setData({
                   [status]: '等待评价',
                 
+                })
+              } else if (that.data.sentorders[i].status == 6) {
+                var status = 'status[' + i + ']';
+
+                that.setData({
+                  [status]: '未支付',
+
                 })
 
               } else if (that.data.reorders[i].status == 4) {
@@ -474,6 +506,13 @@ Page({
               [status]: '等待评价',
           
             })
+          } else if (that.data.sentorders[i].status == 6) {
+            var status = 'status[' + i + ']';
+
+            that.setData({
+              [status]: '未支付',
+
+            })
 
           } else if (that.data.reorders[i].status == 4) {
             var status = 'status[' + i + ']';
@@ -509,5 +548,4 @@ Page({
       url: '../senderInfo/senderInfo'
     })
   }
- 
 })  
