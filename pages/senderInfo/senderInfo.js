@@ -42,10 +42,14 @@ Page({
             that.setData({
               Sex: '男'
             })
-          } else {
+          } else if (res.data.data.sender.sex == 0) {
             that.setData({
-              Sex: '女'
+              Sex: '未知'
             })
+          } else{
+              that.setData({
+                  Sex: '女'
+              })
           }
         }
       },

@@ -49,15 +49,19 @@ Page({
             that.setData({
               inFo:res.data.data
             });
-            if(res.data.data.sex == 1){
-              that.setData({
-                Sex:'男'
-              })
-            }else{
-              that.setData({
-                Sex: '女'
-              })
-            }
+              if(res.data.data.sex == 1){
+                  that.setData({
+                      Sex:'男'
+                  })
+              }else if (res.data.data.sex == 0) {
+                  that.setData({
+                      Sex: '未知'
+                  })
+              } else{
+                  that.setData({
+                      Sex: '女'
+                  })
+              }
           }
       },
     })

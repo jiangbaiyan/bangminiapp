@@ -140,13 +140,11 @@ Page({
                                         wx.showToast({
                                             title: '登录成功',
                                             icon: 'success',
-                                            duration: 500
+                                            duration: 300
                                         });
-                                        setTimeout(function () {
-                                            wx.switchTab({
-                                                url: '../check/check',
-                                            })
-                                        }, 1000)
+                                      wx.switchTab({
+                                        url: '../ordercalog/ordercalog',
+                                      })
                                     } else {
                                         wx.showModal({
                                             title: '提示',

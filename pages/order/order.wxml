@@ -23,7 +23,7 @@
     <view class="Time1">
       <image class="Icon" src='../images/Data1.png'></image>
       <text class="timeText">生效日期</text>
-      <picker mode="date" value="{{begindata}}" start="2018-01-01" end="2018-12-31" bindchange="choosestartdata">
+      <picker mode="date" value="{{begindata}}" start="2019-01-01" end="2019-12-31" bindchange="choosestartdata">
           <text class="inputview" value='{{begindata}}'>{{begindata}}</text>
         </picker>
 
@@ -32,7 +32,7 @@
     <view class="Time1">
       <image class="Icon" src='../images/Time1.png'></image>
       <text class="timeText">生效时间</text>
-      <picker mode="time" value="{{begintime}}" start="09:01" end="21:01" bindchange="choosestarttime">
+      <picker mode="time" value="{{begintime}}" start="00:00" end="23:59" bindchange="choosestarttime">
           <text value='{{begintime}}' class="inputview">{{begintime}}</text>
         </picker>
 
@@ -41,7 +41,7 @@
     <view class="Time1">
       <image class="Icon" src='../images/endTime.png'></image>
       <text class="timeText">截止日期</text>
-      <picker mode="date" value="{{enddata}}" start="{{begindata}}" end="2018-12-31" bindchange="chooseenddata">
+      <picker mode="date" value="{{enddata}}" start="{{begindata}}" end="2019-12-31" bindchange="chooseenddata">
           <text value='{{enddata}}' class="inputview">{{enddata}}</text>
         </picker>
 
@@ -50,8 +50,8 @@
     <view class="Time1">
       <image class="Icon" src='../images/end.png'></image>
       <text class="timeText">截止时间</text>
-              <picker mode="time" value="{{endtime}}" start="09：011" end="21：01" bindchange="chooseendtime">
-          <text value='{{endtime}}' class="inputview">{{endtime}}</text>
+            <picker mode="time" value="{{endtime}}" start="00:00" end="23:59" bindchange="chooseendtime">
+            <text value='{{endtime}}' class="inputview">{{endtime}}</text>
         </picker>
 
     </view>
@@ -62,17 +62,12 @@
        <picker value="{{index}}" range="{{style}}" bindchange="changestyle">
          <text value='{{tip}}{{style[type]}}' class="inputviews"   > {{tip}}{{style[type]}}</text>
       </picker>
-
     </view>
      <view class="block"></view>
      <view class="block"></view>
      <view class="block"></view>
      <view class="block"></view>
-    
   </view>
-
-
-  
 </view>
 <view class="pinkline"></view>
 <view class="container">

@@ -27,7 +27,7 @@ Page({
                     })
                 }
                 var str;
-                switch (that.data.orders.type) {
+                switch (res.data.data.type) {
                     case 0:
                         str = '跑腿';
                         break;
@@ -47,7 +47,7 @@ Page({
                         str = '其他';
                         break;
                 }
-                this.setData({
+                that.setData({
                     type: str
                 });
                 if (that.data.orders.status == 1) {
